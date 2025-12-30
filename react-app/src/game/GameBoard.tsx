@@ -54,7 +54,9 @@ export default function GameBoard() {
 
 
     const movLeft = () => {
-        const newMatrix = matrix.map(row => row.filter(num => num !== 0));
+            setMatrix((prev) => {
+                const newMatrix = prev.map(row => row.filter(num => num !== 0));
+       // const newMatrix = matrix.map(row => row.filter(num => num !== 0));
 
         for (let row = 0; row < 4; row++) {
                 while (newMatrix[row].length < 4) {
@@ -84,10 +86,14 @@ export default function GameBoard() {
         if(gameOverFunc(newMatrix)) {
             setGameOver(true)
         }
+
+        return newMatrix;
+    })
     }
 
     const movRight = () => {
-        const newMatrix = matrix.map(row => row.filter(num => num !== 0));
+        setMatrix((prev) => {
+            const newMatrix = prev.map(row => row.filter(num => num !== 0));
 
         for (let row = 0; row < 4; row++) {
             while (newMatrix[row].length < 4) {
@@ -117,6 +123,8 @@ export default function GameBoard() {
         if(gameOverFunc(newMatrix)) {
             setGameOver(true)
         }
+            return newMatrix;
+        })
     }
 
     const movUp = () => {
