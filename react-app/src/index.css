@@ -1,7 +1,10 @@
 .app {
     text-align: center;
-    font-size: 30px; /* Основний шрифт 30px */
+    font-size: 50px; /* Основний шрифт 30px */
     color: #3f3830;
+    letter-spacing: 2px;
+    margin-right: 200px;
+    font-family: 'Arial', sans-serif;
 }
 
 body{
@@ -11,10 +14,12 @@ body{
 /* Загальний контейнер */
 .background {
     background: #776e65;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
     width: fit-content;
-    margin: 20px auto;
+    /*margin: auto;*/
+    margin-bottom: 100px;
+    margin-left: 485px;
 }
 
 /* Ряд */
@@ -24,8 +29,8 @@ body{
 
 /* Клітинка */
 .cell {
-    width: 70px;
-    height: 70px;
+    width: 100px;
+    height: 100px;
     background: #F3EDE6;
     margin: 5px;
     border-radius: 6px;
@@ -34,31 +39,60 @@ body{
     align-items: center;
     justify-content: center;
 
-    font-size: 30px; /* Змінили на 30px */
+    font-family: 'Arial', sans-serif;
     font-weight: bold;
     color: #776e65;
 }
+
+
+.cell-0 { background-color: #A1988F; color: #776e65; font-size: 45px}
+.cell-2 { background-color: #F3EDE6; color: #776e65; font-size: 45px}
+.cell-4 { background-color: #FFECBE; color: #776e65; font-size: 45px}
+.cell-8 { background-color: #F3AA62; color: #fff; font-size: 45px}
+.cell-16 { background-color: #FA9F44; color: #fff; font-size: 45px}
+.cell-32 { background-color: #FF8D64; color: #fff; font-size: 45px}
+.cell-64 { background-color: #FF6448; color: #fff; font-size: 45px}
+.cell-128 { background-color: #ECD268; color: #fff; font-size: 42px}
+.cell-256 { background-color: #83C5EF; color: #fff; font-size: 42px}
+.cell-512 { background-color: #44A7E5; color: #fff; font-size: 42px}
+.cell-1024 { background-color: #0087DB; color: #fff; font-size: 38px}
+.cell-2048 { background-color: #00426B; color: #fff; font-size: 38px}
 
 /* WIN / GAME OVER картки */
 .win-card, .gameover-card {
     position: fixed;
-    top: 34%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: whitesmoke; /* трішки щільніше */
-    padding: 40px 60px;  /* відступи більші, щоб виглядало пропорційно */
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1px 50px;
     border-radius: 15px;
-    color: #776e65;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35); /* сильніша тінь */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     text-align: center;
-    font-size: 70px;      /* 30px для тексту */
+    font-size: 50px;
     font-weight: bold;
     z-index: 100;
+    display: flex;
+    flex-direction: column; /* вертикальне розташування */
+    align-items: center;
+}
+
+/* кнопка всередині картки */
+.win-card button, .gameover-card button {
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    margin-bottom: 50px;
+    padding: 12px 20px;   /* трохи більші для відповідності 30px */
+    font-size: 20px;      /* однаковий розмір шрифту */
+    border-radius: 15px;
+    background-color: #776e65;
+    color: white;
 }
 
 /* Кнопки */
 button {
-    margin: 4px;
+    /*margin: 4px;*/
     padding: 12px 20px;   /* трохи більші для відповідності 30px */
     font-size: 20px;      /* однаковий розмір шрифту */
     cursor: pointer;
@@ -67,9 +101,89 @@ button {
     background-color: #DB7093;
     color: white;
     font-weight: bold;
+    /*letter-spacing: 1px;*/
+    margin-bottom: 30px;
 }
 
 button:hover {
-    background-color: #C0557D;
+    background-color: #3f3830;
     color: white;
+}
+
+.scores-container {
+    display: flex;
+    justify-content: center; /* по горизонталі по центру */
+    margin-left: 235px;
+    /*margin-bottom: 30px;*/
+}
+
+.score {
+    display: flex;
+    flex-direction: column; /* текст зверху, число знизу */
+    align-items: center;
+    justify-content: center;
+    background-color: #776e65; /* колір кнопки */
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 80px; /* ширина "кнопки" */
+    margin: 10px;
+    user-select: none; /* текст не виділяється */
+    pointer-events: none; /* робить елемент неклікабельним */
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+.score2 {
+    display: flex;
+    flex-direction: column; /* текст зверху, число знизу */
+    align-items: center;
+    justify-content: center;
+    background-color: #776e65; /* колір кнопки */
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 50px; /* ширина "кнопки" */
+    margin: 10px;
+    user-select: none; /* текст не виділяється */
+    pointer-events: none; /* робить елемент неклікабельним */
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+.score span.label {
+    font-size: 14px; /* менший текст зверху */
+    font-weight: normal;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+
+.score span.value {
+    font-size: 24px; /* більше число знизу */
+    font-weight: bold;
+    opacity: 1;
+}
+
+.score2 span.label {
+    font-size: 14px; /* менший текст зверху */
+    font-weight: normal;
+    letter-spacing: 1px;
+    opacity: 1;
+}
+
+.score2 span.value {
+    font-size: 24px; /* більше число знизу */
+    font-weight: bold;
+    opacity: 1;
+}
+
+/* затемнений фон для WIN / GAME OVER */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* темний напівпрозорий фон */
+    z-index: 50; /* менше, ніж у картки */
 }
