@@ -1,4 +1,5 @@
-import {useEffect, useState} from "react"
+import {useCallback, useEffect, useState} from "react"
+
 
 export default function GameBoard() {
     const [matrix, setMatrix] = useState(Array(4).fill(0).map(() => Array(4).fill(0)));
@@ -59,7 +60,7 @@ export default function GameBoard() {
         let counterScore = 0;
 
         setMatrix((prev) => {
-                const newMatrix = prev.map(row => row.filter(num => num !== 0));
+                let newMatrix = prev.map(row => row.filter(num => num !== 0));
 
         for (let row = 0; row < 4; row++) {
                 while (newMatrix[row].length < 4) {
@@ -78,7 +79,7 @@ export default function GameBoard() {
             }
         }
 
-        newMatrix.map(row => row.filter(num => num !== 0));
+        newMatrix = newMatrix.map(row => row.filter(num => num !== 0));
         for (let row = 0; row < 4; row++) {
             while (newMatrix[row].length < 4) {
                 newMatrix[row].push(0)
@@ -104,7 +105,7 @@ export default function GameBoard() {
         let counterScore = 0;
 
         setMatrix((prev) => {
-            const newMatrix = prev.map(row => row.filter(num => num !== 0));
+            let newMatrix = prev.map(row => row.filter(num => num !== 0));
 
         for (let row = 0; row < 4; row++) {
             while (newMatrix[row].length < 4) {
@@ -123,7 +124,7 @@ export default function GameBoard() {
             }
         }
 
-        newMatrix.map(row => row.filter(num => num !== 0));
+        newMatrix = newMatrix.map(row => row.filter(num => num !== 0));
         for (let row = 0; row < 4; row++) {
             while (newMatrix[row].length < 4) {
                 newMatrix[row].unshift(0)
