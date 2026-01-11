@@ -13,13 +13,18 @@ The goal of the game is to combine tiles with the same numbers and reach **2048*
 
 ### Step 1
 ```bash
+git clone https://github.com/maryanaliakh/2048-game.git
+```
+
+### Step 2
+```bash
 docker build -t 2048 .
 ```
-### Step 2
+### Step 3
 ```bash
 docker run --name 2048 -p 5173:5173 2048
 ```
 
-### Step 3
+### Step 4
 Open in browser: http://localhost:5173
 
